@@ -25,6 +25,6 @@ public class Sausage implements Cloneable{
 	}
 	
 	public String toString(){
-		return sl + " " + sw;		
+		return sl + "" + sw;		
 	}
 }

@@ -16,10 +16,7 @@ public class SausageFactory {
 	ArrayList<Comparator<Sausage>> comparatorList;
 	
 	public static void main(String[] args) throws IOException{
-		Scanner in = new Scanner(new File("input.txt"));
-//		PrintWriter out = new PrintWriter(new File("output.txt"));
-//		int leadTime = 1;
-//		int preLength = 0, preWidth = 0;
+		Scanner in = new Scanner(new File(".//input.txt"));
 		int noOfSausage = in.nextInt();
 		SausageFactory sFactory = new SausageFactory(noOfSausage);
 		int lenth = 0, width = 0;
@@ -42,11 +39,22 @@ public class SausageFactory {
 	}
 	
 	public void printSausages(){
+		int prepareTime = 0;
+		int preLength = Integer.MAX_VALUE;
+		int preWidth = Integer.MAX_VALUE;
 		for(Sausage sausage : this.getSausages()){
-			System.out.print(sausage.getLenth());
-			System.out.print(sausage.getWidth());
+			int length = sausage.getLenth();
+			int width = sausage.getWidth();
+			if(preLength > length && preWidth > width){
+				System.out.print(" | ");
+				prepareTime++;
+			}
+			preLength = sausage.getLenth();
+			preWidth = sausage.getWidth();
+			System.out.print(sausage.toString());
 			System.out.print(" ");
 		}
+		System.out.print(", prepareTime = " + prepareTime + " mins");
 		System.out.println();
 	}
 	
@@ -71,8 +79,6 @@ public class SausageFactory {
 		for(Comparator<Sausage> comparator : this.comparatorList){
 			Collections.sort(this.sausages, comparator);
 		}
-		
-		printSausages();
 		
 		for(int i = 0 ; i < sausages.size()-1 ; i++){
 			if(sausages.get(i).getLenth() > sausages.get(i+1).getLenth() ||
