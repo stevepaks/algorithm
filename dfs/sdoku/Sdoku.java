@@ -136,7 +136,7 @@ public class Sdoku {
 		
 		try {
 			Scanner in = new Scanner(new File("input.txt"));
-//			sdoku.initSdoku(in);
+			sdoku.initSdoku(in);
 			sdoku.makeSdoku(0);
 			sdoku.printSdoku();
 		} catch (FileNotFoundException e) {
