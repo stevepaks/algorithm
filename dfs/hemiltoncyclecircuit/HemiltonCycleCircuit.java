@@ -54,7 +54,6 @@ public class HemiltonCycleCircuit {
 
 	public void makeAvailableCircuit() {
 		if (this.depth == this.noOfSite) {
-			this.printCircuit();
 			this.findMinCircuit();
 			this.findMaxCircuit();
 			this.noOfRoute++;
@@ -93,18 +92,11 @@ public class HemiltonCycleCircuit {
 			this.maxCircuit = tempCircuit;
 		}
 	}
-
-	private void printCircuit() {
-		for (int r : this.route) {
-			System.out.print(r + " ");
-		}
-		System.out.println();
-	}
 	
 	public void printCircuitInfo(){
-		System.out.println(this.noOfRoute);
-		System.out.println(this.minCircuit);
-		System.out.println(this.maxCircuit);
+		System.out.println("the number of route = " + this.noOfRoute);
+		System.out.println("the minimum cost = " + this.minCircuit);
+		System.out.println("the maximum cost = " + this.maxCircuit);
 	}
 
 	public static void main(String[] args) {
