@@ -1,0 +1,12 @@
+Q. finding a way to minimize preparation time
+
+Input
+first element : the number of sausages
+others : even are the length and width of an element
+
+Input
+5 
+4 9 5 2 2 1 3 5 1 4
+
+Output
+2
