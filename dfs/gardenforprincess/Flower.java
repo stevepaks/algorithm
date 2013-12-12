@@ -52,7 +52,7 @@ public class Flower implements Serializable{
 	
 	@Override
 	public String toString(){
-		return this.flowerId + " " + this.bloomingPeriod.getBeginDay() + " " + this.bloomingPeriod.getEndDay() + " " + this.isFirst;
+		return "id = " + this.flowerId + " | blooming = " + this.bloomingPeriod.getBeginDay() + " | falling = " + this.bloomingPeriod.getEndDay() + " | isFirst = " + this.isFirst;
 	}
 
 }

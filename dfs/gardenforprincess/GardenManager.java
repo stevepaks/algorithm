@@ -1,33 +1,36 @@
 package gardenforprincess;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class GardenManager {
 	private List<Flower> allFlowers;
 	public final Duration horizon = new Duration(3, 1, 11, 30);
-	private DataHandler dataHandler;
+	private Scanner in;
 	
-	public GardenManager() throws SQLException{
+	public GardenManager() throws IOException{
 		this.init();
 		this.makeFlowerList();
 		this.sortFlowers();
 		this.setFirstFlower();
 	}
 	
-	private void init() throws SQLException{
-		dataHandler = new DataHandler();
+	private void init() throws IOException{
+		in = new Scanner(new File("input.txt"));		
 		this.allFlowers = Collections.synchronizedList(new ArrayList<Flower>());
 	}
 	
 	private void makeFlowerList(){
-		int i = 0;
-		List<int[]> periodList = dataHandler.getPeriodList();
-		for(int[] period : periodList){
-			this.addFlower(new Flower(i++, period[0], period[1], period[2], period[3]));
+		int noOfFlowers = this.in.nextInt();
+		for(int i = 0 ; i < noOfFlowers ; i++){
+			this.addFlower(new Flower(i, in.nextInt(), in.nextInt(), in.nextInt(), in.nextInt()));
 		}			
 	}
 	
