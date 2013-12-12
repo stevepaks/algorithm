@@ -45,7 +45,7 @@ public class NQueen {
 	private void printQueenPos(){
 		int i = 0;
 		for(int r : this.route){
-			System.out.println(i++ + " " + r);
+			System.out.println("row pos : " + i++ + " " + " col pos : " + r);
 		}
 	}
 	
@@ -87,12 +87,10 @@ public class NQueen {
 	}
 	
 	public static void main(String[] args){
-		NQueen counter = new NQueen(6);
+		NQueen counter = new NQueen(4);
 		
 		counter.nQueen();
-		
-		System.out.println();
-		System.out.println(counter.getAvail());
+		System.out.println("the number of ways = " + counter.getAvail());
 	}
 	
 
